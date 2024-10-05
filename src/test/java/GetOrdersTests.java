@@ -39,7 +39,7 @@ public class GetOrdersTests {
 
     @Test
     public void getAllOrdersWithoutToken() {
-        ValidatableResponse response = client.getOrdersWithOutToken().assertThat().body("success",is(false)).statusCode(401);
+        client.getOrdersWithOutToken().assertThat().body("success",is(false)).statusCode(401);
     }
 
 

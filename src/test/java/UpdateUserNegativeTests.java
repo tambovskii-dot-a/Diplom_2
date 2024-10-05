@@ -1,11 +1,10 @@
-import io.restassured.response.ValidatableResponse;
+
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 import pojo.RootUser;
 
 import static org.hamcrest.Matchers.equalTo;
-import static org.junit.Assert.assertEquals;
 
 public class UpdateUserNegativeTests {
     StellarBurgersRestClient client = new StellarBurgersRestClient();

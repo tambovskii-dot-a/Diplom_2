@@ -27,24 +27,25 @@ public class UpdateUserPositiveTests {
     public void updateEmailTest() {
         RootUser testRootUser;
         String expectedResult = Constants.NEW_EMAIL;
-        ValidatableResponse response = client.updateUser("{\"email\":"+"\""+expectedResult+"\"}", rootUser).statusCode(200);
+        ValidatableResponse response = client.updateUser("{\"email\":" + "\"" + expectedResult + "\"}", rootUser).statusCode(200);
         testRootUser = response.extract().as(RootUser.class);
         assertEquals(expectedResult, testRootUser.user.getEmail());
     }
+
     @Test
     public void updatePasswordTest() {
-        RootUser testRootUser;
+
         String expectedResult = Constants.NEW_PASSWORD;
-        ValidatableResponse response = client.updateUser("{\"password\":"+"\""+expectedResult+"\"}", rootUser).statusCode(200);
-        testRootUser = response.extract().as(RootUser.class);
-        UserData loginData = new UserData(Constants.EMAIL,Constants.NEW_PASSWORD);
-                client.loginUser(loginData).statusCode(200);
+        client.updateUser("{\"password\":" + "\"" + expectedResult + "\"}", rootUser).statusCode(200);
+        UserData loginData = new UserData(Constants.EMAIL, Constants.NEW_PASSWORD);
+        client.loginUser(loginData).statusCode(200);
     }
+
     @Test
     public void updateNameTest() {
         RootUser testRootUser;
         String expectedResult = Constants.NEW_NAME;
-        ValidatableResponse response = client.updateUser("{\"name\":"+"\""+expectedResult+"\"}", rootUser).statusCode(200);
+        ValidatableResponse response = client.updateUser("{\"name\":" + "\"" + expectedResult + "\"}", rootUser).statusCode(200);
         testRootUser = response.extract().as(RootUser.class);
         assertEquals(expectedResult, testRootUser.user.getName());
     }
